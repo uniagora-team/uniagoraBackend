@@ -226,6 +226,22 @@ class ProductRetrieveViewTests(APITestCase):
         product.refresh_from_db()
         self.assertEqual(product.views_count, 1)
 
+    def test_owner_view_does_not_increment_view_count(self):
+        """The vendor previewing their own listing is not counted as a view."""
+        product = make_product(self.store, self.university, status=ProductStatus.ACTIVE)
+        self.client.force_authenticate(self.vendor_user)
+        self.client.get(reverse("product-detail", args=[product.slug]))
+        product.refresh_from_db()
+        self.assertEqual(product.views_count, 0)
+
+    def test_admin_view_does_not_increment_view_count(self):
+        """Admin moderation views do not count as customer interest."""
+        product = make_product(self.store, self.university, status=ProductStatus.ACTIVE)
+        self.client.force_authenticate(self.admin)
+        self.client.get(reverse("product-detail", args=[product.slug]))
+        product.refresh_from_db()
+        self.assertEqual(product.views_count, 0)
+
     def test_unknown_slug_returns_404(self):
         self.client.force_authenticate(self.customer)
         response = self.client.get(reverse("product-detail", args=["does-not-exist"]))

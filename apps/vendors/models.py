@@ -84,7 +84,7 @@ class VendorProfile(BaseModel):
         constraints = [
             models.UniqueConstraint(
                 fields=["university", "matric_number"],
-                condition=Q(matric_number__isnull=False),
+                condition=Q(matric_number__isnull=False) & Q(is_deleted=False),
                 name="unique_matric_number_per_university",
             ),
             models.CheckConstraint(

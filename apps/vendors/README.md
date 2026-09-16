@@ -180,7 +180,7 @@ Student matric numbers are unique within a university:
 (university, matric_number)
 ```
 
-The uniqueness constraint applies only when `matric_number` is present, allowing business vendors to have a null matric number.
+The uniqueness constraint applies only when `matric_number` is present, allowing business vendors to have a null matric number. The constraint is also scoped to live (non-soft-deleted) rows, so a matric number freed by a soft-deleted application can be reused.
 
 ### Conditional Vendor Fields
 

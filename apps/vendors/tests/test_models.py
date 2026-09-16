@@ -76,6 +76,25 @@ class VendorProfileModelTests(TestCase):
         )
         self.assertIsNotNone(vp2.pk)
 
+    def test_matric_number_reusable_after_soft_delete(self):
+        """The uniqueness constraint is scoped to live rows, so a matric
+        number freed by a soft-deleted application can be used again."""
+        vp = self._student_profile()
+        vp.delete()  # soft delete
+
+        other_user = User.objects.create_user(
+            email="student4@example.com",
+            password="pass12345",
+            full_name="Student Four",
+        )
+        # Must not raise IntegrityError.
+        reprofile = self._student_profile(
+            user=other_user,
+            store_name="Store B",
+            matric_number="123456",
+        )
+        self.assertFalse(reprofile.is_deleted)
+
     def test_business_vendors_do_not_collide_on_null_matric(self):
         u1 = User.objects.create_user(
             email="biz1@example.com", password="pass12345", full_name="Biz One"

@@ -16,7 +16,7 @@ from pathlib import Path
 import cloudinary
 import cloudinary.api  # noqa: F401  (registers the Admin API used by health checks)
 import cloudinary.uploader
-from decouple import config
+from decouple import Csv, config
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 # BASE_DIR = Path(__file__).resolve().parent
@@ -89,6 +89,10 @@ SPECTACULAR_SETTINGS = {
     "DESCRIPTION": "UniAGORA marketplace REST API.",
     "VERSION": "1.0.0",
     "SERVE_INCLUDE_SCHEMA": False,
+    # Generate separate request/response components so file-upload fields
+    # document as format:binary on requests while responses keep format:uri
+    # (required for correct Cloudinary upload endpoint docs).
+    "COMPONENT_SPLIT_REQUEST": True,
     "SCHEMA_PATH_PREFIX": r"/api/v1/",
     "ENUM_NAME_OVERRIDES": {
         "TransactionStatusEnum": "apps.chat.models.TransactionStatus",
@@ -100,6 +104,10 @@ SPECTACULAR_SETTINGS = {
 }
 
 MIDDLEWARE = [
+    # Must be as high as possible (before CommonMiddleware) so CORS preflight
+    # OPTIONS requests short-circuit before auth/session middleware runs and
+    # so response headers are appended on every view's response.
+    "corsheaders.middleware.CorsMiddleware",
     "django.middleware.security.SecurityMiddleware",
     "django.contrib.sessions.middleware.SessionMiddleware",
     "django.middleware.common.CommonMiddleware",
@@ -229,6 +237,27 @@ STATIC_URL = "static/"
 # https://docs.djangoproject.com/en/5.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
+
+
+# Cross-Origin Resource Sharing (SPA frontend integration).
+# The browser-based frontend is served from a different origin, so the API
+# must explicitly allowlist it or every browser call (including preflights)
+# is rejected. Configured via env so each deployment names its own frontend
+# origin(s); CORS_ALLOW_ALL_ORIGINS=True is a dev-only escape hatch.
+CORS_ALLOWED_ORIGINS = config(
+    "CORS_ALLOWED_ORIGINS",
+    default="",
+    cast=Csv(),
+)
+CORS_ALLOWED_ORIGIN_REGEXES = config(
+    "CORS_ALLOWED_ORIGIN_REGEXES",
+    default="",
+    cast=Csv(),
+)
+CORS_ALLOW_ALL_ORIGINS = config("CORS_ALLOW_ALL_ORIGINS", default=False, cast=bool)
+# Authorization-header JWT needs no cookies, but allow credentials so the
+# frontend can opt into cookie-based flows without a settings change.
+CORS_ALLOW_CREDENTIALS = True
 
 
 # Password-reset email delivery (EDD §10, assumption 3 — no provider is

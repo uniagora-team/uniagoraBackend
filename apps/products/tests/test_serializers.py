@@ -15,6 +15,7 @@ from apps.products.search.filters import (
 from apps.products.search.queries import apply_keyword_search
 from apps.products.serializers import (
     ProductCreateSerializer,
+    ProductImageSerializer,
     ProductListQuerySerializer,
     ProductSerializer,
     ProductUpdateSerializer,
@@ -466,3 +467,40 @@ class SearchFilterHelperTests(TestCase):
         base_count = Product.objects.visible().count()
         qs = apply_keyword_search(Product.objects.visible(), "")
         self.assertEqual(qs.count(), base_count)
+
+
+class ProductImageURLSerializationTests(TestCase):
+    """Regression guard: Cloudinary-backed ``image`` fields must serialize as
+    absolute https://res.cloudinary.com/... URLs, never raw DB strings
+    ("image/upload/v.../<public_id>"). Enforced project-wide by the
+    Cloudinary -> DRF field mapping in apps/common/serializers.py."""
+
+    @classmethod
+    def setUpTestData(cls):
+        cls.university = make_university()
+        _, _, cls.store = make_verified_vendor(cls.university)
+
+    def test_image_url_is_absolute_cloudinary_url(self):
+        product = make_product(self.store, self.university)
+        ProductImage.objects.create(product=product, image="regression.jpg")
+
+        image = ProductImage.objects.alive().first()
+        data = ProductImageSerializer(image).data
+
+        url = data["image"]
+        self.assertIsInstance(url, str)
+        self.assertTrue(url.startswith("https://res.cloudinary.com/"))
+        self.assertIn("/image/upload/", url)
+        self.assertIn("regression.jpg", url)
+
+    def test_primary_image_url_is_absolute_when_present(self):
+        product = make_product(self.store, self.university)
+        ProductImage.objects.create(
+            product=product, image="primary.jpg", is_primary=True
+        )
+
+        data = ProductSerializer(product).data
+
+        self.assertIsNotNone(data["primary_image"])
+        url = data["primary_image"]["image"]
+        self.assertTrue(url.startswith("https://res.cloudinary.com/"))

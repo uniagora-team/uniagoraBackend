@@ -202,6 +202,15 @@ ACTIVE
 
 Renewal resets `expires_at` to 30 days from the current time. Renewal is not permitted for products hidden by suspension or removed by Admin.
 
+Expiry is applied by a scheduled sweep, not on request:
+
+```bash
+python manage.py sweep_expired_products        # manage.py entrypoint
+python ops/cron.py sweep                       # standalone cron entrypoint
+```
+
+Both invoke the same runner (`ops/product_lifecycle.run_expiry_sweep`) and are idempotent, so they are safe to run on a frequent schedule. Deployment must wire one of them into a scheduler (cron/systemd timer/celery-beat) — without it, listings never transition to `EXPIRED`.
+
 ### ProductImageService
 
 Responsible for:
@@ -339,7 +348,7 @@ GET /api/v1/products/{slug}/
 
 Returns a product according to the product visibility rules.
 
-A product view increments `views_count`.
+A product view increments `views_count` for genuine customer interest only: views by the owning vendor and by admins are excluded, so the counter reflects external demand rather than self-activity.
 
 ### Create Product
 

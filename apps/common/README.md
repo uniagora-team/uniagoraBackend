@@ -135,6 +135,32 @@ class ProductImage(BaseModel):
     image = CloudinaryImageField(folder="uniagora/products", validators=[validate_upload_size, validate_image_content_type])
 ```
 
+## `serializers.CloudinaryFileField`
+
+DRF-side counterpart to the Cloudinary model fields above. Registered
+globally at startup (`CommonConfig.ready()`), so every `ModelSerializer`
+renders Cloudinary-backed fields (`product images`, `vendor documents`,
+`business/university logos`, future chat attachments) as absolute
+`https://res.cloudinary.com/...` URLs — no per-serializer workaround.
+
+```python
+class ProductImageSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = ProductImage
+        fields = ["id", "image", "is_primary", "display_order"]
+    # `image` needs NO explicit field — the global mapping emits the URL.
+```
+
+Write serializers that accept uploads should declare the field explicitly
+(uploads only — clients can never submit URL strings):
+
+```python
+from apps.common.serializers import CloudinaryFileField
+
+class UniversityAdminWriteSerializer(serializers.ModelSerializer):
+    logo = CloudinaryFileField(required=False, allow_null=True)
+```
+
 ## `validators.validate_phone_number`
 
 ```python

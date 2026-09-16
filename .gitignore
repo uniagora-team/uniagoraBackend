@@ -6,7 +6,6 @@ knowledge.md
 .env
 .env.*
 !.env.example
-.env.example
 
 # Python
 __pycache__/
@@ -54,3 +53,6 @@ media/
 staticfiles/
 GEMINI.md
 docs/CLOUDINARY_SETUP_REPORT.md
+docs/CLOUDINARY_SETUP_REPORT.md
+docs/CLOUDINARY_SERIALIZATION_REPORT.md
+docs/FRONTEND_BLOCKER_FIXES_REPORT.md

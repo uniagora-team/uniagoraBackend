@@ -197,11 +197,22 @@ class ProductViewSet(
             kwargs["slug"],
         )
 
-        Product.objects.filter(pk=product.pk).update(
-            views_count=F("views_count") + 1,
+        # View counting: only genuine customer interest increments the
+        # counter. Owner previews and admin moderation views are excluded so
+        # `views_count` reflects external demand rather than vendor/admin
+        # self-activity (the vendor sees their own listing while editing,
+        # admins while moderating — inflating the metric otherwise).
+        viewer = request.user
+        viewer_vendor_profile = getattr(viewer, "vendor_profile", None)
+        is_owner_view = viewer_vendor_profile is not None and (
+            product.store.vendor_profile_id == viewer_vendor_profile.id
         )
-
-        product.views_count += 1
+        viewer_is_admin = viewer.is_authenticated and viewer.is_admin
+        if not (viewer_is_admin or is_owner_view):
+            Product.objects.filter(pk=product.pk).update(
+                views_count=F("views_count") + 1,
+            )
+            product.views_count += 1
 
         return success_response(
             data=ProductSerializer(product).data,

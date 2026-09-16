@@ -22,8 +22,6 @@ class CategoryBriefSerializer(serializers.ModelSerializer):
 
 
 class ProductImageSerializer(serializers.ModelSerializer):
-    image = serializers.SerializerMethodField()
-
     class Meta:
         model = ProductImage
         fields = [
@@ -33,12 +31,6 @@ class ProductImageSerializer(serializers.ModelSerializer):
             "display_order",
         ]
         read_only_fields = fields
-
-    def get_image(self, obj):
-        if not obj.image:
-            return None
-
-        return obj.image.url
 
 
 class ProductSerializer(serializers.ModelSerializer):

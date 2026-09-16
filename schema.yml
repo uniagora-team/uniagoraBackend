@@ -40,13 +40,13 @@ paths:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/AdminCategoryWrite'
+              $ref: '#/components/schemas/AdminCategoryWriteRequest'
           application/x-www-form-urlencoded:
             schema:
-              $ref: '#/components/schemas/AdminCategoryWrite'
+              $ref: '#/components/schemas/AdminCategoryWriteRequest'
           multipart/form-data:
             schema:
-              $ref: '#/components/schemas/AdminCategoryWrite'
+              $ref: '#/components/schemas/AdminCategoryWriteRequest'
         required: true
       security:
       - jwtAuth: []
@@ -105,13 +105,13 @@ paths:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/PatchedAdminCategoryUpdate'
+              $ref: '#/components/schemas/PatchedAdminCategoryUpdateRequest'
           application/x-www-form-urlencoded:
             schema:
-              $ref: '#/components/schemas/PatchedAdminCategoryUpdate'
+              $ref: '#/components/schemas/PatchedAdminCategoryUpdateRequest'
           multipart/form-data:
             schema:
-              $ref: '#/components/schemas/PatchedAdminCategoryUpdate'
+              $ref: '#/components/schemas/PatchedAdminCategoryUpdateRequest'
       security:
       - jwtAuth: []
       responses:
@@ -378,13 +378,13 @@ paths:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/AdminResolution'
+              $ref: '#/components/schemas/AdminResolutionRequest'
           application/x-www-form-urlencoded:
             schema:
-              $ref: '#/components/schemas/AdminResolution'
+              $ref: '#/components/schemas/AdminResolutionRequest'
           multipart/form-data:
             schema:
-              $ref: '#/components/schemas/AdminResolution'
+              $ref: '#/components/schemas/AdminResolutionRequest'
       security:
       - jwtAuth: []
       responses:
@@ -417,13 +417,13 @@ paths:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/AdminResolution'
+              $ref: '#/components/schemas/AdminResolutionRequest'
           application/x-www-form-urlencoded:
             schema:
-              $ref: '#/components/schemas/AdminResolution'
+              $ref: '#/components/schemas/AdminResolutionRequest'
           multipart/form-data:
             schema:
-              $ref: '#/components/schemas/AdminResolution'
+              $ref: '#/components/schemas/AdminResolutionRequest'
       security:
       - jwtAuth: []
       responses:
@@ -707,13 +707,13 @@ paths:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/EmailTokenObtainPair'
+              $ref: '#/components/schemas/EmailTokenObtainPairRequest'
           application/x-www-form-urlencoded:
             schema:
-              $ref: '#/components/schemas/EmailTokenObtainPair'
+              $ref: '#/components/schemas/EmailTokenObtainPairRequest'
           multipart/form-data:
             schema:
-              $ref: '#/components/schemas/EmailTokenObtainPair'
+              $ref: '#/components/schemas/EmailTokenObtainPairRequest'
         required: true
       responses:
         '200':
@@ -738,13 +738,13 @@ paths:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/Logout'
+              $ref: '#/components/schemas/LogoutRequest'
           application/x-www-form-urlencoded:
             schema:
-              $ref: '#/components/schemas/Logout'
+              $ref: '#/components/schemas/LogoutRequest'
           multipart/form-data:
             schema:
-              $ref: '#/components/schemas/Logout'
+              $ref: '#/components/schemas/LogoutRequest'
         required: true
       security:
       - jwtAuth: []
@@ -771,13 +771,13 @@ paths:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/PasswordResetConfirm'
+              $ref: '#/components/schemas/PasswordResetConfirmRequest'
           application/x-www-form-urlencoded:
             schema:
-              $ref: '#/components/schemas/PasswordResetConfirm'
+              $ref: '#/components/schemas/PasswordResetConfirmRequest'
           multipart/form-data:
             schema:
-              $ref: '#/components/schemas/PasswordResetConfirm'
+              $ref: '#/components/schemas/PasswordResetConfirmRequest'
         required: true
       security:
       - jwtAuth: []
@@ -805,13 +805,13 @@ paths:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/PasswordResetRequest'
+              $ref: '#/components/schemas/PasswordResetRequestRequest'
           application/x-www-form-urlencoded:
             schema:
-              $ref: '#/components/schemas/PasswordResetRequest'
+              $ref: '#/components/schemas/PasswordResetRequestRequest'
           multipart/form-data:
             schema:
-              $ref: '#/components/schemas/PasswordResetRequest'
+              $ref: '#/components/schemas/PasswordResetRequestRequest'
         required: true
       security:
       - jwtAuth: []
@@ -839,13 +839,13 @@ paths:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/Register'
+              $ref: '#/components/schemas/RegisterRequest'
           application/x-www-form-urlencoded:
             schema:
-              $ref: '#/components/schemas/Register'
+              $ref: '#/components/schemas/RegisterRequest'
           multipart/form-data:
             schema:
-              $ref: '#/components/schemas/Register'
+              $ref: '#/components/schemas/RegisterRequest'
         required: true
       security:
       - jwtAuth: []
@@ -940,13 +940,13 @@ paths:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/CategoryCreate'
+              $ref: '#/components/schemas/CategoryCreateRequest'
           application/x-www-form-urlencoded:
             schema:
-              $ref: '#/components/schemas/CategoryCreate'
+              $ref: '#/components/schemas/CategoryCreateRequest'
           multipart/form-data:
             schema:
-              $ref: '#/components/schemas/CategoryCreate'
+              $ref: '#/components/schemas/CategoryCreateRequest'
         required: true
       security:
       - jwtAuth: []
@@ -1006,13 +1006,13 @@ paths:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/CategoryUpdate'
+              $ref: '#/components/schemas/CategoryUpdateRequest'
           application/x-www-form-urlencoded:
             schema:
-              $ref: '#/components/schemas/CategoryUpdate'
+              $ref: '#/components/schemas/CategoryUpdateRequest'
           multipart/form-data:
             schema:
-              $ref: '#/components/schemas/CategoryUpdate'
+              $ref: '#/components/schemas/CategoryUpdateRequest'
         required: true
       security:
       - jwtAuth: []
@@ -1044,13 +1044,13 @@ paths:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/PatchedCategoryUpdate'
+              $ref: '#/components/schemas/PatchedCategoryUpdateRequest'
           application/x-www-form-urlencoded:
             schema:
-              $ref: '#/components/schemas/PatchedCategoryUpdate'
+              $ref: '#/components/schemas/PatchedCategoryUpdateRequest'
           multipart/form-data:
             schema:
-              $ref: '#/components/schemas/PatchedCategoryUpdate'
+              $ref: '#/components/schemas/PatchedCategoryUpdateRequest'
       security:
       - jwtAuth: []
       responses:
@@ -1188,13 +1188,13 @@ paths:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/ConversationCreate'
+              $ref: '#/components/schemas/ConversationCreateRequest'
           application/x-www-form-urlencoded:
             schema:
-              $ref: '#/components/schemas/ConversationCreate'
+              $ref: '#/components/schemas/ConversationCreateRequest'
           multipart/form-data:
             schema:
-              $ref: '#/components/schemas/ConversationCreate'
+              $ref: '#/components/schemas/ConversationCreateRequest'
         required: true
       security:
       - jwtAuth: []
@@ -1317,13 +1317,13 @@ paths:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/MessageCreate'
+              $ref: '#/components/schemas/MessageCreateRequest'
           application/x-www-form-urlencoded:
             schema:
-              $ref: '#/components/schemas/MessageCreate'
+              $ref: '#/components/schemas/MessageCreateRequest'
           multipart/form-data:
             schema:
-              $ref: '#/components/schemas/MessageCreate'
+              $ref: '#/components/schemas/MessageCreateRequest'
         required: true
       security:
       - jwtAuth: []
@@ -1472,13 +1472,13 @@ paths:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/DeviceTokenRegister'
+              $ref: '#/components/schemas/DeviceTokenRegisterRequest'
           application/x-www-form-urlencoded:
             schema:
-              $ref: '#/components/schemas/DeviceTokenRegister'
+              $ref: '#/components/schemas/DeviceTokenRegisterRequest'
           multipart/form-data:
             schema:
-              $ref: '#/components/schemas/DeviceTokenRegister'
+              $ref: '#/components/schemas/DeviceTokenRegisterRequest'
         required: true
       security:
       - jwtAuth: []
@@ -1665,13 +1665,13 @@ paths:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/ProductCreate'
+              $ref: '#/components/schemas/ProductCreateRequest'
           application/x-www-form-urlencoded:
             schema:
-              $ref: '#/components/schemas/ProductCreate'
+              $ref: '#/components/schemas/ProductCreateRequest'
           multipart/form-data:
             schema:
-              $ref: '#/components/schemas/ProductCreate'
+              $ref: '#/components/schemas/ProductCreateRequest'
         required: true
       security:
       - jwtAuth: []
@@ -1741,13 +1741,13 @@ paths:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/ProductUpdate'
+              $ref: '#/components/schemas/ProductUpdateRequest'
           application/x-www-form-urlencoded:
             schema:
-              $ref: '#/components/schemas/ProductUpdate'
+              $ref: '#/components/schemas/ProductUpdateRequest'
           multipart/form-data:
             schema:
-              $ref: '#/components/schemas/ProductUpdate'
+              $ref: '#/components/schemas/ProductUpdateRequest'
       security:
       - jwtAuth: []
       responses:
@@ -1778,13 +1778,13 @@ paths:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/PatchedProductUpdate'
+              $ref: '#/components/schemas/PatchedProductUpdateRequest'
           application/x-www-form-urlencoded:
             schema:
-              $ref: '#/components/schemas/PatchedProductUpdate'
+              $ref: '#/components/schemas/PatchedProductUpdateRequest'
           multipart/form-data:
             schema:
-              $ref: '#/components/schemas/PatchedProductUpdate'
+              $ref: '#/components/schemas/PatchedProductUpdateRequest'
       security:
       - jwtAuth: []
       responses:
@@ -1838,13 +1838,13 @@ paths:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/ProductCategoryAssignment'
+              $ref: '#/components/schemas/ProductCategoryAssignmentRequest'
           application/x-www-form-urlencoded:
             schema:
-              $ref: '#/components/schemas/ProductCategoryAssignment'
+              $ref: '#/components/schemas/ProductCategoryAssignmentRequest'
           multipart/form-data:
             schema:
-              $ref: '#/components/schemas/ProductCategoryAssignment'
+              $ref: '#/components/schemas/ProductCategoryAssignmentRequest'
         required: true
       security:
       - jwtAuth: []
@@ -1905,13 +1905,13 @@ paths:
         content:
           multipart/form-data:
             schema:
-              $ref: '#/components/schemas/ProductImageUpload'
+              $ref: '#/components/schemas/ProductImageUploadRequest'
           application/x-www-form-urlencoded:
             schema:
-              $ref: '#/components/schemas/ProductImageUpload'
+              $ref: '#/components/schemas/ProductImageUploadRequest'
           application/json:
             schema:
-              $ref: '#/components/schemas/ProductImageUpload'
+              $ref: '#/components/schemas/ProductImageUploadRequest'
         required: true
       security:
       - jwtAuth: []
@@ -2008,13 +2008,13 @@ paths:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/PatchedInventoryUpdate'
+              $ref: '#/components/schemas/PatchedInventoryUpdateRequest'
           application/x-www-form-urlencoded:
             schema:
-              $ref: '#/components/schemas/PatchedInventoryUpdate'
+              $ref: '#/components/schemas/PatchedInventoryUpdateRequest'
           multipart/form-data:
             schema:
-              $ref: '#/components/schemas/PatchedInventoryUpdate'
+              $ref: '#/components/schemas/PatchedInventoryUpdateRequest'
       security:
       - jwtAuth: []
       responses:
@@ -2197,13 +2197,13 @@ paths:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/ReportResolution'
+              $ref: '#/components/schemas/ReportResolutionRequest'
           application/x-www-form-urlencoded:
             schema:
-              $ref: '#/components/schemas/ReportResolution'
+              $ref: '#/components/schemas/ReportResolutionRequest'
           multipart/form-data:
             schema:
-              $ref: '#/components/schemas/ReportResolution'
+              $ref: '#/components/schemas/ReportResolutionRequest'
       security:
       - jwtAuth: []
       responses:
@@ -2237,13 +2237,13 @@ paths:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/ReportResolution'
+              $ref: '#/components/schemas/ReportResolutionRequest'
           application/x-www-form-urlencoded:
             schema:
-              $ref: '#/components/schemas/ReportResolution'
+              $ref: '#/components/schemas/ReportResolutionRequest'
           multipart/form-data:
             schema:
-              $ref: '#/components/schemas/ReportResolution'
+              $ref: '#/components/schemas/ReportResolutionRequest'
       security:
       - jwtAuth: []
       responses:
@@ -2341,13 +2341,13 @@ paths:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/ReportCreate'
+              $ref: '#/components/schemas/ReportCreateRequest'
           application/x-www-form-urlencoded:
             schema:
-              $ref: '#/components/schemas/ReportCreate'
+              $ref: '#/components/schemas/ReportCreateRequest'
           multipart/form-data:
             schema:
-              $ref: '#/components/schemas/ReportCreate'
+              $ref: '#/components/schemas/ReportCreateRequest'
         required: true
       security:
       - jwtAuth: []
@@ -2382,13 +2382,13 @@ paths:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/ReportCreate'
+              $ref: '#/components/schemas/ReportCreateRequest'
           application/x-www-form-urlencoded:
             schema:
-              $ref: '#/components/schemas/ReportCreate'
+              $ref: '#/components/schemas/ReportCreateRequest'
           multipart/form-data:
             schema:
-              $ref: '#/components/schemas/ReportCreate'
+              $ref: '#/components/schemas/ReportCreateRequest'
         required: true
       security:
       - jwtAuth: []
@@ -2461,13 +2461,13 @@ paths:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/PatchedReviewUpdate'
+              $ref: '#/components/schemas/PatchedReviewUpdateRequest'
           application/x-www-form-urlencoded:
             schema:
-              $ref: '#/components/schemas/PatchedReviewUpdate'
+              $ref: '#/components/schemas/PatchedReviewUpdateRequest'
           multipart/form-data:
             schema:
-              $ref: '#/components/schemas/PatchedReviewUpdate'
+              $ref: '#/components/schemas/PatchedReviewUpdateRequest'
       security:
       - jwtAuth: []
       responses:
@@ -2539,13 +2539,13 @@ paths:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/ReviewCreate'
+              $ref: '#/components/schemas/ReviewCreateRequest'
           application/x-www-form-urlencoded:
             schema:
-              $ref: '#/components/schemas/ReviewCreate'
+              $ref: '#/components/schemas/ReviewCreateRequest'
           multipart/form-data:
             schema:
-              $ref: '#/components/schemas/ReviewCreate'
+              $ref: '#/components/schemas/ReviewCreateRequest'
         required: true
       security:
       - jwtAuth: []
@@ -2615,13 +2615,13 @@ paths:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/StoreWrite'
+              $ref: '#/components/schemas/StoreWriteRequest'
           application/x-www-form-urlencoded:
             schema:
-              $ref: '#/components/schemas/StoreWrite'
+              $ref: '#/components/schemas/StoreWriteRequest'
           multipart/form-data:
             schema:
-              $ref: '#/components/schemas/StoreWrite'
+              $ref: '#/components/schemas/StoreWriteRequest'
       security:
       - jwtAuth: []
       responses:
@@ -2694,13 +2694,13 @@ paths:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/PatchedStoreWrite'
+              $ref: '#/components/schemas/PatchedStoreWriteRequest'
           application/x-www-form-urlencoded:
             schema:
-              $ref: '#/components/schemas/PatchedStoreWrite'
+              $ref: '#/components/schemas/PatchedStoreWriteRequest'
           multipart/form-data:
             schema:
-              $ref: '#/components/schemas/PatchedStoreWrite'
+              $ref: '#/components/schemas/PatchedStoreWriteRequest'
       security:
       - jwtAuth: []
       responses:
@@ -2781,13 +2781,13 @@ paths:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/UniversityAdminWrite'
+              $ref: '#/components/schemas/UniversityAdminWriteRequest'
           application/x-www-form-urlencoded:
             schema:
-              $ref: '#/components/schemas/UniversityAdminWrite'
+              $ref: '#/components/schemas/UniversityAdminWriteRequest'
           multipart/form-data:
             schema:
-              $ref: '#/components/schemas/UniversityAdminWrite'
+              $ref: '#/components/schemas/UniversityAdminWriteRequest'
         required: true
       security:
       - jwtAuth: []
@@ -2847,13 +2847,13 @@ paths:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/UniversityAdminWrite'
+              $ref: '#/components/schemas/UniversityAdminWriteRequest'
           application/x-www-form-urlencoded:
             schema:
-              $ref: '#/components/schemas/UniversityAdminWrite'
+              $ref: '#/components/schemas/UniversityAdminWriteRequest'
           multipart/form-data:
             schema:
-              $ref: '#/components/schemas/UniversityAdminWrite'
+              $ref: '#/components/schemas/UniversityAdminWriteRequest'
         required: true
       security:
       - jwtAuth: []
@@ -2885,13 +2885,13 @@ paths:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/PatchedUniversityAdminWrite'
+              $ref: '#/components/schemas/PatchedUniversityAdminWriteRequest'
           application/x-www-form-urlencoded:
             schema:
-              $ref: '#/components/schemas/PatchedUniversityAdminWrite'
+              $ref: '#/components/schemas/PatchedUniversityAdminWriteRequest'
           multipart/form-data:
             schema:
-              $ref: '#/components/schemas/PatchedUniversityAdminWrite'
+              $ref: '#/components/schemas/PatchedUniversityAdminWriteRequest'
       security:
       - jwtAuth: []
       responses:
@@ -2993,13 +2993,13 @@ paths:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/PatchedUserUpdate'
+              $ref: '#/components/schemas/PatchedUserUpdateRequest'
           application/x-www-form-urlencoded:
             schema:
-              $ref: '#/components/schemas/PatchedUserUpdate'
+              $ref: '#/components/schemas/PatchedUserUpdateRequest'
           multipart/form-data:
             schema:
-              $ref: '#/components/schemas/PatchedUserUpdate'
+              $ref: '#/components/schemas/PatchedUserUpdateRequest'
       security:
       - jwtAuth: []
       responses:
@@ -3028,13 +3028,13 @@ paths:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/PatchedSetActiveUniversity'
+              $ref: '#/components/schemas/PatchedSetActiveUniversityRequest'
           application/x-www-form-urlencoded:
             schema:
-              $ref: '#/components/schemas/PatchedSetActiveUniversity'
+              $ref: '#/components/schemas/PatchedSetActiveUniversityRequest'
           multipart/form-data:
             schema:
-              $ref: '#/components/schemas/PatchedSetActiveUniversity'
+              $ref: '#/components/schemas/PatchedSetActiveUniversityRequest'
       security:
       - jwtAuth: []
       responses:
@@ -3119,13 +3119,13 @@ paths:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/VendorApplication'
+              $ref: '#/components/schemas/VendorApplicationRequest'
           application/x-www-form-urlencoded:
             schema:
-              $ref: '#/components/schemas/VendorApplication'
+              $ref: '#/components/schemas/VendorApplicationRequest'
           multipart/form-data:
             schema:
-              $ref: '#/components/schemas/VendorApplication'
+              $ref: '#/components/schemas/VendorApplicationRequest'
         required: true
       security:
       - jwtAuth: []
@@ -3391,15 +3391,17 @@ components:
           $ref: '#/components/schemas/AdminCategory'
       required:
       - data
-    AdminCategoryWrite:
+    AdminCategoryWriteRequest:
       type: object
       properties:
         name:
           type: string
+          minLength: 1
           maxLength: 100
         parent:
           type: string
           nullable: true
+          minLength: 1
           pattern: ^[-a-zA-Z0-9_]+$
         display_order:
           type: integer
@@ -3621,7 +3623,7 @@ components:
           $ref: '#/components/schemas/ReportAdmin'
       required:
       - data
-    AdminResolution:
+    AdminResolutionRequest:
       type: object
       properties:
         resolution_notes:
@@ -3970,14 +3972,16 @@ components:
       - id
       - name
       - slug
-    CategoryCreate:
+    CategoryCreateRequest:
       type: object
       properties:
         name:
           type: string
+          minLength: 1
           maxLength: 100
         parent:
           type: string
+          minLength: 1
           nullable: true
         display_order:
           type: integer
@@ -4081,12 +4085,13 @@ components:
           $ref: '#/components/schemas/Category'
       required:
       - data
-    CategoryUpdate:
+    CategoryUpdateRequest:
       type: object
       description: Only `name` is writable post-creation.
       properties:
         name:
           type: string
+          minLength: 1
           maxLength: 100
       required:
       - name
@@ -4192,7 +4197,7 @@ components:
           $ref: '#/components/schemas/Conversation'
       required:
       - data
-    ConversationCreate:
+    ConversationCreateRequest:
       type: object
       properties:
         vendor:
@@ -4498,11 +4503,12 @@ components:
             $ref: '#/components/schemas/DeviceToken'
       required:
       - data
-    DeviceTokenRegister:
+    DeviceTokenRegisterRequest:
       type: object
       properties:
         token:
           type: string
+          minLength: 1
           maxLength: 255
         platform:
           $ref: '#/components/schemas/PlatformEnum'
@@ -4536,15 +4542,17 @@ components:
         * `COURSE_REGISTRATION_SLIP` - Course Registration Slip
         * `SCHOOL_FEE_RECEIPT` - School Fee Receipt
         * `BUSINESS_DOCUMENT` - Business Document
-    EmailTokenObtainPair:
+    EmailTokenObtainPairRequest:
       type: object
       properties:
         email:
           type: string
           writeOnly: true
+          minLength: 1
         password:
           type: string
           writeOnly: true
+          minLength: 1
       required:
       - email
       - password
@@ -4575,11 +4583,12 @@ components:
           $ref: '#/components/schemas/RegisterResponseData'
       required:
       - data
-    Logout:
+    LogoutRequest:
       type: object
       properties:
         refresh:
           type: string
+          minLength: 1
       required:
       - refresh
     LogoutResponse:
@@ -4663,11 +4672,12 @@ components:
       - is_own
       - read_at
       - sender
-    MessageCreate:
+    MessageCreateRequest:
       type: object
       properties:
         body:
           type: string
+          minLength: 1
       required:
       - body
     MyReportsListResponse:
@@ -5041,16 +5051,19 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/VendorProfileListResponse'
-    PasswordResetConfirm:
+    PasswordResetConfirmRequest:
       type: object
       properties:
         uid:
           type: string
+          minLength: 1
         token:
           type: string
+          minLength: 1
         new_password:
           type: string
           writeOnly: true
+          minLength: 1
       required:
       - new_password
       - token
@@ -5064,12 +5077,13 @@ components:
         message:
           type: string
           default: ''
-    PasswordResetRequest:
+    PasswordResetRequestRequest:
       type: object
       properties:
         email:
           type: string
           format: email
+          minLength: 1
       required:
       - email
     PasswordResetRequestResponse:
@@ -5081,30 +5095,33 @@ components:
         message:
           type: string
           default: ''
-    PatchedAdminCategoryUpdate:
+    PatchedAdminCategoryUpdateRequest:
       type: object
       properties:
         name:
           type: string
+          minLength: 1
           maxLength: 100
-    PatchedCategoryUpdate:
+    PatchedCategoryUpdateRequest:
       type: object
       description: Only `name` is writable post-creation.
       properties:
         name:
           type: string
+          minLength: 1
           maxLength: 100
-    PatchedInventoryUpdate:
+    PatchedInventoryUpdateRequest:
       type: object
       properties:
         quantity:
           type: integer
           minimum: 0
-    PatchedProductUpdate:
+    PatchedProductUpdateRequest:
       type: object
       properties:
         name:
           type: string
+          minLength: 1
           maxLength: 200
         description:
           type: string
@@ -5123,7 +5140,7 @@ components:
           items:
             type: string
             format: uuid
-    PatchedReviewUpdate:
+    PatchedReviewUpdateRequest:
       type: object
       description: |-
         Partial-update serializer for `PATCH /reviews/{id}/`. Ownership is
@@ -5136,13 +5153,14 @@ components:
         comment:
           type: string
           nullable: true
-    PatchedSetActiveUniversity:
+    PatchedSetActiveUniversityRequest:
       type: object
       properties:
         university_slug:
           type: string
+          minLength: 1
           pattern: ^[-a-zA-Z0-9_]+$
-    PatchedStoreWrite:
+    PatchedStoreWriteRequest:
       type: object
       description: |-
         The only serializer that ever accepts client input — used identically
@@ -5151,6 +5169,7 @@ components:
       properties:
         display_name:
           type: string
+          minLength: 1
           maxLength: 150
         description:
           type: string
@@ -5159,23 +5178,27 @@ components:
           type: string
           nullable: true
           maxLength: 20
-    PatchedUniversityAdminWrite:
+    PatchedUniversityAdminWriteRequest:
       type: object
       properties:
         name:
           type: string
+          minLength: 1
           maxLength: 150
         short_name:
           type: string
+          minLength: 1
           maxLength: 20
         logo:
           type: string
+          format: binary
           nullable: true
-    PatchedUserUpdate:
+    PatchedUserUpdateRequest:
       type: object
       properties:
         full_name:
           type: string
+          minLength: 1
           maxLength: 150
         phone_number:
           type: string
@@ -5320,7 +5343,7 @@ components:
       - store
       - university
       - views_count
-    ProductCategoryAssignment:
+    ProductCategoryAssignmentRequest:
       type: object
       description: Full-replace category assignment payload for PUT .../categories/.
       properties:
@@ -5344,7 +5367,7 @@ components:
           $ref: '#/components/schemas/Product'
       required:
       - data
-    ProductCreate:
+    ProductCreateRequest:
       type: object
       description: |-
         Client input for product creation.
@@ -5355,6 +5378,7 @@ components:
       properties:
         name:
           type: string
+          minLength: 1
           maxLength: 200
         description:
           type: string
@@ -5380,7 +5404,7 @@ components:
             format: uuid
         primary_image:
           type: string
-          format: uri
+          format: binary
       required:
       - condition
       - name
@@ -5421,6 +5445,8 @@ components:
           readOnly: true
         image:
           type: string
+          format: uri
+          nullable: true
           readOnly: true
         is_primary:
           type: boolean
@@ -5472,12 +5498,12 @@ components:
           $ref: '#/components/schemas/ProductImage'
       required:
       - data
-    ProductImageUpload:
+    ProductImageUploadRequest:
       type: object
       properties:
         image:
           type: string
-          format: uri
+          format: binary
         is_primary:
           type: boolean
         display_order:
@@ -5650,11 +5676,12 @@ components:
         * `EXPIRED` - Expired
         * `HIDDEN_BY_SUSPENSION` - Hidden by suspension
         * `REMOVED_BY_ADMIN` - Removed by admin
-    ProductUpdate:
+    ProductUpdateRequest:
       type: object
       properties:
         name:
           type: string
+          minLength: 1
           maxLength: 200
         description:
           type: string
@@ -5702,17 +5729,20 @@ components:
         * `INAPPROPRIATE_BEHAVIOR` - Inappropriate Behavior
         * `FAKE_VENDOR` - Fake Vendor
         * `OTHER` - Other
-    Register:
+    RegisterRequest:
       type: object
       properties:
         email:
           type: string
           format: email
+          minLength: 1
         password:
           type: string
           writeOnly: true
+          minLength: 1
         full_name:
           type: string
+          minLength: 1
           maxLength: 150
         phone_number:
           type: string
@@ -5863,7 +5893,7 @@ components:
       - target_id
       - target_type
       - updated_at
-    ReportCreate:
+    ReportCreateRequest:
       type: object
       description: |-
         Input serializer for creating reports.
@@ -5904,7 +5934,7 @@ components:
           $ref: '#/components/schemas/ReportAdmin'
       required:
       - data
-    ReportResolution:
+    ReportResolutionRequest:
       type: object
       description: Input serializer for Admin report resolution/rejection.
       properties:
@@ -6053,7 +6083,7 @@ components:
       - store_id
       - store_slug
       - updated_at
-    ReviewCreate:
+    ReviewCreateRequest:
       type: object
       description: |-
         The only input-accepting serializer for creation. `conversation`
@@ -6285,7 +6315,7 @@ components:
       - previous
       - results
       - total_pages
-    StoreWrite:
+    StoreWriteRequest:
       type: object
       description: |-
         The only serializer that ever accepts client input — used identically
@@ -6294,6 +6324,7 @@ components:
       properties:
         display_name:
           type: string
+          minLength: 1
           maxLength: 150
         description:
           type: string
@@ -6359,8 +6390,9 @@ components:
           pattern: ^[-a-zA-Z0-9_]+$
         logo:
           type: string
-          readOnly: true
+          format: uri
           nullable: true
+          readOnly: true
         is_active:
           type: boolean
           readOnly: true
@@ -6394,17 +6426,20 @@ components:
           $ref: '#/components/schemas/University'
       required:
       - data
-    UniversityAdminWrite:
+    UniversityAdminWriteRequest:
       type: object
       properties:
         name:
           type: string
+          minLength: 1
           maxLength: 150
         short_name:
           type: string
+          minLength: 1
           maxLength: 20
         logo:
           type: string
+          format: binary
           nullable: true
       required:
       - name
@@ -6609,7 +6644,7 @@ components:
           $ref: '#/components/schemas/User'
       required:
       - data
-    VendorApplication:
+    VendorApplicationRequest:
       type: object
       properties:
         university:
@@ -6619,9 +6654,11 @@ components:
           $ref: '#/components/schemas/VendorTypeEnum'
         store_name:
           type: string
+          minLength: 1
           maxLength: 150
         phone_number:
           type: string
+          minLength: 1
           maxLength: 20
         matric_number:
           type: string
@@ -6645,6 +6682,7 @@ components:
           maxLength: 255
         business_logo:
           type: string
+          format: binary
           nullable: true
         document_type:
           nullable: true
@@ -6653,7 +6691,7 @@ components:
           - $ref: '#/components/schemas/NullEnum'
         document_file:
           type: string
-          format: uri
+          format: binary
           nullable: true
       required:
       - phone_number
@@ -6686,6 +6724,8 @@ components:
           readOnly: true
         file:
           type: string
+          format: uri
+          nullable: true
           readOnly: true
         status:
           allOf:
@@ -6767,8 +6807,9 @@ components:
           nullable: true
         business_logo:
           type: string
-          readOnly: true
+          format: uri
           nullable: true
+          readOnly: true
         status:
           allOf:
           - $ref: '#/components/schemas/VendorStatusEnum'

@@ -81,6 +81,38 @@ class VendorApplicationSerializerTests(TestCase):
         self.assertFalse(serializer.is_valid())
         self.assertIn("matric_number", serializer.errors)
 
+    def test_accepts_matric_number_freed_by_soft_deleted_application(self):
+        """The friendly duplicate check only considers live applications."""
+        user = User.objects.create_user(
+            email="s1@example.com", password="pass12345", full_name="S1"
+        )
+        vp = VendorProfile.objects.create(
+            user=user,
+            university=self.university,
+            vendor_type=VendorType.STUDENT,
+            store_name="Store A",
+            phone_number="+2348012345678",
+            matric_number="123456",
+            department="CS",
+            level="300",
+        )
+        vp.delete()  # soft delete
+
+        serializer = VendorApplicationSerializer(
+            data={
+                "university": self.university.pk,
+                "vendor_type": VendorType.STUDENT,
+                "store_name": "Store B",
+                "phone_number": "+2348012345678",
+                "matric_number": "123456",
+                "department": "CS",
+                "level": "200",
+                "document_type": "STUDENT_ID_CARD",
+                "document_file": self._doc(),
+            }
+        )
+        self.assertTrue(serializer.is_valid(), serializer.errors)
+
     def test_accepts_valid_student_payload(self):
         serializer = VendorApplicationSerializer(
             data={

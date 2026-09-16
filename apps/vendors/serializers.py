@@ -1,5 +1,11 @@
 from rest_framework import serializers
 
+from apps.common.fields import (
+    validate_document_content_type,
+    validate_image_content_type,
+    validate_upload_size,
+)
+from apps.common.serializers import CloudinaryFileField
 from apps.universities.models import University
 from apps.universities.serializers import UniversitySerializer
 
@@ -55,7 +61,18 @@ class VendorApplicationSerializer(serializers.ModelSerializer):
     document_type = serializers.ChoiceField(
         choices=VendorDocumentType.choices, required=False, allow_null=True
     )
-    document_file = serializers.FileField(required=False, allow_null=True)
+    document_file = serializers.FileField(
+        required=False,
+        allow_null=True,
+        validators=[validate_upload_size, validate_document_content_type],
+    )
+    # Accept an uploaded image file — never a client-supplied URL string.
+    # Validators enforce the shared 8MB / image-type policy (Architecture §10).
+    business_logo = CloudinaryFileField(
+        required=False,
+        allow_null=True,
+        validators=[validate_upload_size, validate_image_content_type],
+    )
 
     class Meta:
         model = VendorProfile
@@ -96,9 +113,9 @@ class VendorApplicationSerializer(serializers.ModelSerializer):
             if (
                 matric_number
                 and university
-                and VendorProfile.objects.filter(
-                    university=university, matric_number=matric_number
-                ).exists()
+                and VendorProfile.objects.alive()
+                .filter(university=university, matric_number=matric_number)
+                .exists()
             ):
                 errors["matric_number"] = (
                     "This matric number is already registered at this university."
